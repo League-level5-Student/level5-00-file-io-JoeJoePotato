@@ -1,5 +1,7 @@
 package _02_File_Encrypt_Decrypt;
 
+import javax.swing.JOptionPane;
+
 public class FileDecryptor {
 	/*
 	 * Decryption is the process of taking encoded or encrypted text or other data
@@ -19,4 +21,22 @@ public class FileDecryptor {
 	 * Create a program that opens the file created by FileEncryptor and decrypts
 	 * the message, then display it to the user in a JOptionPane.
 	 */
-}
+	public static void main(String[] args) {
+		String e=JOptionPane.showInputDialog("What is the coded message");
+		int i=Integer.parseInt(JOptionPane.showInputDialog("what is the key"));
+		String neu=new String();
+		for (int j = 0; j < e.length(); j++) {
+		int p=e.charAt(j)-i;
+		if(p<64) {
+			p=123-(64-p);
+		}
+		char c=(char) p;
+		neu+=c;
+	}
+		System.out.println(e);
+		System.out.println(neu);
+	}
+	}
+
+
+
