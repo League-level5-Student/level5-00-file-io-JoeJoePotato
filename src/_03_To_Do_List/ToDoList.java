@@ -1,6 +1,23 @@
 package _03_To_Do_List;
 
-public class ToDoList {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+public class ToDoList implements ActionListener {
+	ArrayList<String> tasks=new ArrayList<String>();
+	JButton add=new JButton("add task");
+	JButton view=new JButton("view tasks");
+	JButton remove=new JButton("remove tasks");
+	JButton save=new JButton("save list");
+	JButton load=new JButton("load list");
+	JFrame frame=new JFrame("To do list interface");
+	JPanel pane=new JPanel();
 	/*
 	 * Create a program with five buttons, add task, view tasks, remove task, save list, and load list. 
 	 *
@@ -21,4 +38,48 @@ public class ToDoList {
 	 * 
 	 * When the program starts, it should automatically load the last saved file into the list. 
 	 */
+public static void main(String[] args) {
+	ToDoList td=new ToDoList();
+	td.setup();
+	
+}
+	public void setup() {
+
+frame.add(pane);
+add.addActionListener(this);
+pane.add(add);
+view.addActionListener(this);
+pane.add(view);
+remove.addActionListener(this);
+pane.add(remove);
+save.addActionListener(this);
+pane.add(save);
+load.addActionListener(this);
+pane.add(load);
+	
+	
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		JButton j=(JButton) e.getSource();
+		if(j==add) {
+			String t=JOptionPane.showInputDialog("What task would you like to add?" );
+		tasks.add(t);
+		}else if(j==view) {
+			for (int i = 0; i < tasks.size(); i++) {
+				System.out.println(tasks.get(i));
+			}
+		}else if(j==remove) {
+			String r=JOptionPane.showInputDialog("What task would you like to remove?" );
+			for (int i = 0; i < tasks.size(); i++) {
+				if(tasks.get(i)==r) {
+					tasks.remove(i);
+					break;
+				}
+			}
+		}
+		
+	}
+	
 }
