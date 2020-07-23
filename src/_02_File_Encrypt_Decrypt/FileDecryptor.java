@@ -28,7 +28,7 @@ public class FileDecryptor {
 		for (int j = 0; j < e.length(); j++) {
 		int p=e.charAt(j)-i;
 		if(p<64) {
-			p=123-(64-p);
+			p=122-(64-p);
 		}
 		char c=(char) p;
 		neu+=c;
