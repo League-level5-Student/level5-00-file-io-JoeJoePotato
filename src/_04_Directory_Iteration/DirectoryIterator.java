@@ -29,5 +29,17 @@ public class DirectoryIterator {
 		 * Be aware of possible directories inside of directories.
 		 * (e.g //Copyright © 2019 FirstName LastName)
 		 */
+		JFileChooser fc = new JFileChooser();
+		jfc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+		int Val = fc.showOpenDialog(null);
+		if (Val == JFileChooser.APPROVE_OPTION) {
+			File directory = fc.getSelectedFile();
+			File[] files = directory.listFiles();
+			if(files != null) {
+				for(File f : files) {
+				  System.out.println(f.getAbsolutePath());
+				}
+			}
+		}
 	}
 }
