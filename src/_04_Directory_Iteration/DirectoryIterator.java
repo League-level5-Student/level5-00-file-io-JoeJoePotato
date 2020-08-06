@@ -1,10 +1,14 @@
 package _04_Directory_Iteration;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 public class DirectoryIterator {
+	static FileWriter fw;
 	public static void main(String[] args) {
 		/* 
 		 * The following is an example of how to list all of the files in a directory.
@@ -36,9 +40,15 @@ public class DirectoryIterator {
 			File directory = fc.getSelectedFile();
 			File[] files = directory.listFiles();
 			if(files != null) {
-				for(File f : files) {
-				  System.out.println(f.getAbsolutePath());
-				}
+				for(File f : files)
+					try {
+						fw = new FileWriter(f);
+						fw.write("copyright GrahamG corp. 2020");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
 			}
 		}
 	}
