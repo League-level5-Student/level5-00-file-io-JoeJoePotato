@@ -18,7 +18,7 @@ import org.junit.Test;
  * Challenge: Complete the SaveData class so that the test passes.
  */
 public class Serialization {
-	private static final String DATA_FILE = "src/_04_Serialization/saved.dat";
+	private static final String DATA_FILE = "src/_05_Serialization/DATA_FILE";
 
 	@Test
 	public void test() {
